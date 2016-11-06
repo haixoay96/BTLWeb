@@ -6,4 +6,6 @@ http.createServer(app).listen(3000, ()=>{
     console.log('Server running at Port 3000!');
 });
 app.use('/', express.static('public'));
+app.use('/', express.static('node_modules/bootstrap/dist'));
+app.use('/', express.static('node_modules/jquery/dist'));
 app.use('/', require('./router/home.js'));
