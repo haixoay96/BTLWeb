@@ -1,0 +1,15 @@
+.leftbar {
+    display:inline;
+    float:left;
+    width:165px;
+}
+.content {
+    display:inline;
+    float:left;
+    width:605px;
+    padding:20px;
+    /*margin-left: 10px;*/
+}
+/*.header{*/
+    /*float: left;*/
+/*}*/
