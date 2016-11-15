@@ -6,31 +6,31 @@ var mainApp = angular.module('Faculty', ['ngRoute']);
 mainApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
-        templateUrl: 'views/home.html',
-         controller: 'HomeController'
-    })
-        .when ('/lecturer',{
-            templateUrl: 'lecturer.html',
+            templateUrl: 'views/home.html',
+            controller: 'HomeController'
+        })
+        .when('/lecturer', {
+            templateUrl: 'views/lecturer.html',
             controller: 'lecturerController'
         })
         .when('/course', {
             templateUrl: 'views/course.html',
             controller: 'courseController'
         })
-    .when('/courseprogram', {
-        templateUrl: 'views/home.html',
-        controller: ''
-    })
+        .when('/courseprogram', {
+            templateUrl: 'views/courseprogram.html',
+            controller: ''
+        })
         .when('/students', {
-            templateUrl: 'views/home.html',
+            templateUrl: 'views/students.html',
             controller: ''
         })
         .when('/dissertation', {
-            templateUrl: 'views/home.html',
-            controller: ''
+            templateUrl: 'views/dissertation.html',
+            controller: 'dissertationController'
         })
         .when('/register_dissertation', {
-            templateUrl: 'views/home.html',
-            controller: ''
+            templateUrl: 'views/register_dissertation.html',
+            controller: 'registerController'
         })
 }]);

@@ -1,15 +1,12 @@
-.leftbar {
-    display:inline;
-    float:left;
-    width:165px;
+
+.uploadfile {
+    margin-left: 150px;
 }
-.content {
-    display:inline;
-    float:left;
-    width:605px;
-    padding:20px;
-    /*margin-left: 10px;*/
+
+.form-group {
+    padding-top: 30px;
 }
-/*.header{*/
-    /*float: left;*/
-/*}*/
+
+.control-label {
+    margin-top: 10px;
+}
