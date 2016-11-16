@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KHOA CÔNG NGHỆ THÔNG TIN Trường Đại học Công Nghệ </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/angular/angular.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/faculty.css">
+    <script src="/angular-route/angular-route.js"></script>
+
+</head>
+<body ng-app="Faculty">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1" style="margin-top: 20px ">
+            <img src="/img/logo_fituet.png"/>
+        </div>
+        <div class="col-sm-9">
+            <h2><strong>KHOA CÔNG NGHỆ THÔNG TIN</strong></h2>
+            <h3>Trường Đại học Công Nghệ &#8211 Đại học Quốc gia Hà Nội</h3>
+        </div>
+        <div class="col-sm-2" style="margin-top: 10px ">
+            <img src="/img/uet_logo.png"/>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group leftbar">
+                <a class="list-group-item" href="#/">Giới thiệu</a>
+                <a class="list-group-item" href="#lecturer">Thông tin giảng viên</a>
+                <a class="list-group-item" href="#course">Thông tin khoá học</a>
+                <a class="list-group-item" href="#courseprogram">Chương trình đào tạo</a>
+                <a class="list-group-item" href="#students">Thông tin sinh viên</a>
+                <a class="list-group-item" href="#dissertation">Khoá luận tốt nghiệp</a>
+                <a class="list-group-item" href="#register_dissertation">Mở đăng kí đề tài </a>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div ng-view=""></div>
+        </div>
+    </div>
+</div>
+<script src="/js/faculty.js"></script>
+</body>
+</html>
