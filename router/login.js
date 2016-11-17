@@ -25,7 +25,7 @@ router.use(bodyParser.json());
 router.post('/', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
-    connection.query('SELECT * FROM User WHERE username = ? AND password = ? ',[username ,password], (err, rows) => {
+    connection.query('SELECT * FROM User WHERE username = ? AND password = ? ', [username, password], (err, rows) => {
         if (err) {
             console.log(err);
             return;
