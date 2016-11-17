@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lecturers</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lecturer_style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+</head>
+<body ng-app="lecturer">
+<nav class="header">
+    <h2>DANH SÁCH GIẢNG VIÊN</h2>
+    <p>Trường đại học Công Nghệ</p>
+</nav>
+
+<hr width="100%" align="left" size="5px"/>
+
+<div class="t_body container">
+    <div class="filter col-sm-3">
+        <p>tìm kiếm theo tên giảng viên</p>
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="search for">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </span>
+        </div>
+        <br/>
+
+        <p>hoặc tìm kiếm theo khoa</p>
+        <div class="list-group">
+            <a href="#/" class="list-group-item list-group-item-action">
+                <h5 class="list-group-item-heading">Khoa công nghệ công tin</h5>
+            </a>
+            <a href="#/dtvt" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Điện tử viễn thông</h5>
+            </a>
+            <a href="#/tt&mmt" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Truyền thông và mạng máy tính</h5>
+            </a>
+            <a href="#/httt" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Hệ thống thông tin</h5>
+            </a>
+        </div>
+    </div>
+    <div class="list_lecturers col-sm-6">
+        <!--<ul class="list-group">-->
+        <!--<li class="list-group-item"><a href="#/lec_info">Lê đình thanh</a> </li> <br>-->
+        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
+        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
+        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
+        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
+        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
+        <!--</ul>-->
+        <div ng-view=""></div>
+    </div>
+</div>
+<script src="js/app.js"></script>
+<!--<script src="js/LecturerCtrl.js"></script>-->
+</body>
+</html>
