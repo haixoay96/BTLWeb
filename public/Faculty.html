@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Khoa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/faculty_style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body ng-app="faculty">
+<nav class="header">
+    <div class="faculty_logo" style="float: left; padding:10px 40px 10px 0;">
+        <img src="img/logo_fituet.png" height="90" width="90"/>
+    </div>
+    <div class="title" style="float: left; padding: auto;">
+        <h2>DANH SÁCH CÁC KHOA</h2>
+        <p>Trường đại học Công Nghệ</p>
+    </div>
+    <div class="uet_logo pull-right" style="float: left; padding:10px 40px 10px 0;">
+        <img src="img/uet_logo.png" height="90" width="90"/>
+    </div>
+</nav>
+
+<hr width="100%" align="left" size="5px"/>
+
+<div class="t_body container">
+    <div class="faculty_list col-sm-3">
+        <strong><p style="padding-left: 5px;">Các khoa</p></strong>
+        <!--<div class="panel-group" id="accordion">-->
+            <!--<div class="panel panel-default">-->
+                <!--<div class="panel-heading">-->
+                    <!--<h4 class="panel-title">-->
+                        <!--<a data-toggle="collapse" data-parent="accordion" href="#collapseOne">-->
+                            <!--Khoa công nghệ thông tin-->
+                        <!--</a>-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+                    <!--&lt;!&ndash;<div class="panel-body">&ndash;&gt;-->
+                        <!--<div class="list-group">-->
+                            <!--<a href="#/CNTT_bomon" class="list-group-item list-group-item-action">-->
+                                <!--<h5 class="list-group-item-heading">Bộ môn</h5>-->
+                            <!--</a>-->
+                            <!--<a href="#/CNTT_PTN" class="list-group-item list-group-item-action">-->
+                                <!--<h5 class="list-group-item-heading">Phòng thí nghiệm</h5>-->
+                            <!--</a>-->
+                            <!--<a href="" class="list-group-item list-group-item-action">-->
+                                <!--<h5 class="list-group-item-heading">Văn phòng khoa</h5>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+        <div class="list-group">
+            <a href="#/" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Khoa công nghệ công tin</h5>
+            </a>
+            <a href="#/DTVT" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Khoa điện tử viễn thông</h5>
+            </a>
+            <a href="#/CHKT" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Khoa cơ học kỹ thuật & tự động hóa</h5>
+            </a>
+            <a href="#/VLKT" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Khoa vật lí kỹ thuật & công nghệ nanô</h5>
+            </a>
+        </div>
+    </div>
+    <div class="faculty_info col-sm-9">
+        <div ng-view=""></div>
+    </div>
+</div>
+<hr>
+<footer style="background-color: #f3f3f3; padding-left: 40px;" class="navbar-fixed-bottom">
+    <span>Địa chỉ: 144-Xuân Thủy-Cầu Giấy-Hà Nội |
+        điện thoại: 0123456789 |
+        email: balala@gmail.com
+    </span>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>
