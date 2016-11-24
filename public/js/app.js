@@ -2,24 +2,24 @@
  * Created by thanh huyền on 15-Nov-16.
  */
 'use strict';
-angular.module('faculty',['ngRoute'])
-    .config(['$routeProvider',function($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl:'views/CNTT.html',
-                controller:''
+angular.module('faculty',['ui.router'])
+    .config(function($stateProvider,$urlRouterProvider) {
+        $urlRouterProvider.otherwise('/CNTT');
+        $stateProvider
+            .state('CNTT', {
+                url:'/CNTT',
+                templateUrl:'views/CNTT.html'
             })
-            .when('/DTVT', {
-                templateUrl: 'views/DTVT.html',
-                controller: ''
+            .state('DTVT', {
+                url: '/DTVT',
+                templateUrl: 'views/DTVT.html'
             })
-            .when('/CHKT', {
+            .state('CHKT', {
+                url: '/CHKT',
                 templateUrl: 'views/CHKT.html'
             })
-            .when('/VLKT', {
+            .state('VLKT', {
+                url: '/VLKT',
                 templateUrl: 'views/VLKT.html'
             })
-            .otherwise ({
-                redirectTo: '/'
-            });
-    }]);
+    });
