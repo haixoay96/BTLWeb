@@ -24,7 +24,11 @@ app.use(session({
 app.use('/', express.static('public'));
 app.use('/', express.static('node_modules/bootstrap/dist'));
 app.use('/', express.static('node_modules/jquery/dist'));
-app.use('/', express.static('bower_components'));
+app.use('/', express.static('node_modules/angular'));
+app.use('/', express.static('node_modules/angular-route'));
 app.use('/', require('./router/home.js'));
 app.use('/faculty', require('./router/faculty.js'));
 app.use('/login', require('./router/login.js'));
+app.get('/huyen', (req, res)=>{
+    res.render()
+});

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-router.get('/', (req, res) => {
+router.get('/faculty', (req, res) => {
 	res.render('Faculty/Faculty');
 });
 router.get('/views/course', (req, res) => {
