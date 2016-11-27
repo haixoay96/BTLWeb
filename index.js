@@ -26,7 +26,9 @@ app.use('/', express.static('node_modules/bootstrap/dist'));
 app.use('/', express.static('node_modules/jquery/dist'));
 app.use('/', express.static('node_modules/angular'));
 app.use('/', express.static('node_modules/angular-route'));
+app.use('/', express.static('node_modules/angular-ui-router'));
 app.use('/', require('./router/home.js'));
+app.use('/upload', require('./router/upload.js'));
 app.use('/faculty', require('./router/faculty.js'));
 app.use('/login', require('./router/login.js'));
 app.get('/huyen', (req, res)=>{

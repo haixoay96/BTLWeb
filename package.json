@@ -13,14 +13,19 @@
   "dependencies": {
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "connect-redis": "^3.1.0",
     "ejs": "^2.5.2",
+    "excel-to-json": "^1.0.0",
+    "excel2json": "^0.2.9",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "formidable": "^1.0.17",
     "jquery": "^3.1.1",
-    "mysql": "^2.12.0"
+    "mysql": "^2.12.0",
+    "xls-to-json-lc": "^0.3.3"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
