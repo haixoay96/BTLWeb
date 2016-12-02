@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node app",
+    "dev": "nodemon app"
   },
   "keywords": [],
   "author": "",
@@ -19,13 +19,12 @@
     "connect-redis": "^3.1.0",
     "ejs": "^2.5.2",
     "excel-to-json": "^1.0.0",
-    "excel2json": "^0.2.9",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "font-awesome": "^4.7.0",
     "formidable": "^1.0.17",
     "jquery": "^3.1.1",
-    "mysql": "^2.12.0",
-    "xls-to-json-lc": "^0.3.3"
+    "mysql": "^2.12.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

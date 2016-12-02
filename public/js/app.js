@@ -8,18 +8,18 @@ angular.module('faculty',['ui.router'])
         $stateProvider
             .state('CNTT', {
                 url:'/CNTT',
-                templateUrl:'/views/CNTT.html'
+                templateUrl:'/common/views/CNTT.html'
             })
             .state('DTVT', {
                 url: '/DTVT',
-                templateUrl: '/views/DTVT.html'
+                templateUrl: '/common/views/DTVT.html'
             })
             .state('CHKT', {
                 url: '/CHKT',
-                templateUrl: '/views/CHKT.html'
+                templateUrl: '/common/views/CHKT.html'
             })
             .state('VLKT', {
                 url: '/VLKT',
-                templateUrl: '/views/VLKT.html'
+                templateUrl: '/common/views/VLKT.html'
             })
     });

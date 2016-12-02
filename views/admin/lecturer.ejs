@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UET Profile Lecturer </title>
+    <script src="/angular.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/angular-route.js"></script>
+    <link rel="stylesheet" href="/css/faculty.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+
+
+</head>
+<body ng-app="admin_lecturer">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1" style="margin-top: 20px ">
+            <img src="/img/uet_logo.png" height="90" width="90"/>
+        </div>
+        <div class="col-sm-9">
+            <h2><strong>TRƯỜNG ĐẠI HỌC CÔNG NGHỆ</strong></h2>
+            <h2><strong>ĐẠI HỌC QUỐC GIA HÀ NỘI</strong></h2>
+        </div>
+        <div class="col-sm-2" style="margin-top: 10px ">
+            <img src="/img/logo_vnu.png" height="108" width="103"/></div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group leftbar">
+                <a class="list-group-item" href="#/">Thông tin cá nhân</a>
+                <a class="list-group-item" href="#research">Chủ đề nghiên cứu</a>
+                <a class="list-group-item" href="#field">Các lĩnh vực liên quan</a>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div ng-view=""></div>
+        </div>
+    </div>
+</div>
+<script src="/js/lecturer.js"></script>
+</body>
+</html>

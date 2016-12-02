@@ -1,0 +1,39 @@
+var http = require('http');
+var express = require('express');
+var redis = require('redis');
+var session = require('express-session');
+var redisStore = require('connect-redis')(session);
+var client = redis.createClient();
+var app = express();
+var home = require('./routers/home.js');
+var upload = require('./routers/upload.js');
+app.set('view engine', 'ejs');
+http.createServer(app).listen(3000, () => {
+    console.log('Server running at Port 3000!');
+});
+// handle session
+app.use(session({
+    secret: 'ssshhhhh',
+    store: new redisStore({
+        host: '127.0.0.1',
+        port: 6379,
+        client: client,
+        ttl: 260
+    }),
+    saveUninitialized: false,
+    resave: false
+
+}));
+// set static file
+app.use('/', express.static('public'));
+app.use('/', express.static('node_modules/bootstrap/dist'));
+app.use('/', express.static('node_modules/jquery/dist'));
+app.use('/', express.static('node_modules/angular'));
+app.use('/', express.static('node_modules/angular-route'));
+app.use('/', express.static('node_modules/angular-ui-router'));
+app.use('/', express.static('node_modules/font-awesome'));
+app.use('/', require('./routers/home.js'));
+app.use('/upload', require('./routers/upload.js'));
+app.use('/faculty', require('./routers/faculty.js'));
+app.use('/login', require('./routers/login.js'));
+app.use('/admin', require('./routers/admin.js'));
