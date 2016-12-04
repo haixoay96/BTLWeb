@@ -10,10 +10,16 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                    <li><a href='/faculty">Khoa</a></li>
-                <li><a href="#">Lĩnh vực</a></li>
-                <li><a href="#">Giảng viên</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#login-modal"><%= username %></a></li>
+                <li><a href="/faculty">Khoa</a></li>
+                <li><a href="/">Lĩnh vực</a></li>
+                <li><a href="/lecturer">Giảng viên</a></li>
+                <li class="dropdown">
+                    <li data-toggle="dropdown"><a href="#"><%= username %></a></li>
+                    <ul class="dropdown-menu">
+                      <li><a href="/admin">Profile</a></li>
+                      <li><a href="/logout">Logout!</a></li>
+                    </ul>
+                  </div>
             </ul>
         </div>
     </div>
