@@ -33,8 +33,6 @@ app.use(session({
     resave: false
 
 }));
-var home = require('./routers/home.js');
-var upload = require('./routers/upload.js');
 
 // set static file
 app.use('/', express.static('public'));
@@ -49,3 +47,4 @@ app.use('/upload', require('./routers/upload.js'));
 app.use('/faculty', require('./routers/faculty.js'));
 app.use('/login', require('./routers/login.js'));
 app.use('/admin', require('./routers/admin.js'));
+app.use('/logout', require('./routers/logout.js'));
