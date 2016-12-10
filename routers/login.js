@@ -9,21 +9,20 @@ router.use(bodyParser.urlencoded({
 // parse application/json
 router.use(bodyParser.json());
 router.post('/', (req, res) => {
-    var username = req.body.username;
-    var password = req.body.password;
-    db.query('SELECT * FROM users WHERE username = ? AND password = ? ', [username, password], (err, rows) => {
+    var Username = req.body.Username;
+    var Password = req.body.Password;
+    db.query('SELECT * FROM User WHERE Username = ? AND Password = ? ', [Username, Password], (err, rows) => {
         if (err) {
             console.error(err);
             res.end('System error!');
             return;
         }
         if (rows) {
-            console.log(rows[0].type);
-            req.session.username = req.body.username;
-            req.session.type = rows[0].type;
+            console.log(rows);
+            req.session.Username = Username;
+            req.session.Type = rows[0].Type;
             console.log('successfull!');
             res.redirect('/');
-            console.log(rows);
             return;
         }
         console.log('Failure!');
