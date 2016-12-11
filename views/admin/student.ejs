@@ -5,7 +5,7 @@
     <title>UET Students </title>
     <script src="/angular.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/angular-route.js"></script>
+    <script src="/release/angular-ui-router.min.js"></script>
     <link rel="stylesheet" href="/css/faculty.css">
     <link rel="stylesheet" href="/css/font-awesome.css">
 
@@ -28,12 +28,12 @@
     <div class="row">
         <div class="col-sm-2">
             <div class="list-group leftbar">
-                <a class="list-group-item" href="#/">Thông tin cá nhân</a>
-                <a class="list-group-item" href="#register_dissertation">Đăng kí đề tài</a>
+                <a class="list-group-item" ui-sref="home">Thông tin cá nhân</a>
+                <a class="list-group-item" ui-sref="register_dissertation">Đăng kí đề tài</a>
             </div>
         </div>
         <div class="col-sm-10">
-            <div ng-view=""></div>
+            <div ui-view=""></div>
         </div>
     </div>
 </div>

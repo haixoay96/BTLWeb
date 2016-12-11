@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KHOA CÔNG NGHỆ THÔNG TIN Trường Đại học Công Nghệ </title>
+    <title><%= khoa %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/angular.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/faculty.css">
-    <script src="/angular-route.js"></script>
+    <script src="/release/angular-ui-router.min.js"></script>
 
 </head>
 <body ng-app="Faculty">
@@ -28,17 +28,17 @@
     <div class="row">
         <div class="col-sm-2">
             <div class="list-group leftbar">
-                <a class="list-group-item" href="#/">Giới thiệu</a>
-                <a class="list-group-item" href="#lecturer">Thông tin giảng viên</a>
-                <a class="list-group-item" href="#course">Thông tin khoá học</a>
-                <a class="list-group-item" href="#courseprogram">Chương trình đào tạo</a>
-                <a class="list-group-item" href="#students">Thông tin sinh viên</a>
-                <a class="list-group-item" href="#register_dissertation">Mở đăng kí đề tài </a>
-                <a class="list-group-item" href="#dissertation">Khoá luận tốt nghiệp</a>
+                <a class="list-group-item" ui-sref="home">Giới thiệu</a>
+                <a class="list-group-item" ui-sref="lecturer">Thông tin giảng viên</a>
+                <a class="list-group-item" ui-sref="course">Thông tin khoá học</a>
+                <a class="list-group-item" ui-sref="courseprogram">Chương trình đào tạo</a>
+                <a class="list-group-item" ui-sref="students">Thông tin sinh viên</a>
+                <a class="list-group-item" ui-sref="register_dissertation">Mở đăng kí đề tài </a>
+                <a class="list-group-item" ui-sref="dissertation">Khoá luận tốt nghiệp</a>
             </div>
         </div>
         <div class="col-sm-10">
-            <div ng-view=""></div>
+            <div ui-view=""></div>
         </div>
     </div>
 </div>

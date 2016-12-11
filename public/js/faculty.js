@@ -2,28 +2,37 @@
  * Created by nguye on 13/11/2016.
  */
 
-var mainApp = angular.module('Faculty', ['ngRoute']);
-mainApp.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-        .when('/', {
+
+ angular.module('Faculty',['ui.router'])
+     .config(function($stateProvider,$urlRouterProvider) {
+         $urlRouterProvider.otherwise('/home');
+         $stateProvider
+        .state('home', {
+            url: '/home',
             templateUrl: '/admin/faculty/views/home.html'
         })
-        .when('/lecturer', {
+        .state('lecturer', {
+            url: '/lecturer',
             templateUrl: '/admin/faculty/views/lecturer.html'
         })
-        .when('/course', {
+        .state('course', {
+            url: '/course',
             templateUrl: '/admin/faculty/views/course.html'
         })
-        .when('/courseprogram', {
+        .state('courseprogram', {
+            url: '/courseprogram',
             templateUrl: '/admin/faculty/views/courseprogram.html'
         })
-        .when('/students', {
+        .state('students', {
+            url: '/students',
             templateUrl: '/admin/faculty/views/students.html'
         })
-        .when('/dissertation', {
+        .state('dissertation', {
+            url: '/dissertation',
             templateUrl: '/admin/faculty/views/dissertation.html'
         })
-        .when('/register_dissertation', {
+        .state('register_dissertation', {
+            url: '/register_dissertation',
             templateUrl: '/admin/faculty/views/register_dissertation.html'
         })
-}]);
+});
