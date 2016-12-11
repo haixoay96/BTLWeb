@@ -1,24 +1,49 @@
+<h3> Giảng viên Lê Đình Thanh</h3>
 <table class="table table-bordered">
-    <thead>
-    <th>Họ tên</th>
-    <th>Mã giảng viên</th>
-    <th>Khoa</th>
-    <th>Phòng TN</th>
-    <th>Vnu mail</th>
-    <th>Lĩnh vực nghiên cứu</th>
-    <th>Chỉnh sửa thông tin</th>
-    </thead>
     <tbody>
-    <td>Lê Đình Thanh</td>
-    <td>12000000</td>
-    <td>Công nghệ thông tin</td>
-    <td>Lab</td>
-    <td>thanhld@vnu.edu.vn</td>
-    <td>
-    </td>
-    <td>
-        <i class="fa fa-pencil-square-o btn btn-info" aria-hidden="true" ></i>
-    </td>
-
+    <tr>
+        <td>Họ tên</td>
+        <td>Lê Đình Thanh</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mã giảng viên</td>
+        <td>Lê Đình Thanh</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Đơn vị</td>
+        <td>Khoa Công nghệ thông tin</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Hướng nghiên cứu</td>
+        <td>
+            <ul>
+                <li>
+                    <input ng-hide="view_research" ng-model="">Xử lý ảnh</input>
+                    <!--<input ng-show="view_research">Xử lý ảnh</input>-->
+                </li>
+                <li>
+                    <input ng-hide="view_research" ng-model="">Nhúng</input>
+                </li>
+            </ul>
+        </td>
+        <td><i class="fa fa-pencil-square-o btn btn-info" aria-hidden="true"  ng-click="edit_research()"></i></td>
+    </tr>
+    <tr>
+        <td>Lĩnh vực</td>
+        <td>
+            <div>
+                <ul>
+                    <li><input type="checkbox" ng-change="">Trí tuệ nhân tạo</li>
+                    <li><input type="checkbox" ng-change="">Trí tuệ nhân tạo</li>
+                    <li><input type="checkbox" ng-change="">Trí tuệ nhân tạo</li>
+                    <li><input type="checkbox" ng-change="">Trí tuệ nhân tạo</li>
+                </ul>
+            </div>
+        </td>
+        <td><i class="fa fa-pencil-square-o btn btn-info" aria-hidden="true"   ng-click="editField()"></i></td>
+    </tr>
     </tbody>
 </table>
