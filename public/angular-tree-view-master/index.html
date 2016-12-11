@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Angular Tree View</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+		
+		<link rel="stylesheet" href="css/style.css" />
+
+	</head>
+
+	<body ng-app="Demo">
+		<div class="container" ng-controller="DemoController">
+			<h2>Các lĩnh vực</h2>
+			<div class="row">
+				<div class="span6">
+					<div>
+						<ul class="breadcrumb">
+							<li ng-repeat="b in breadcrums" ng-class="{ active: $last }">{{ b }} <span class="divider" ng-show="!$last">/</span></li>
+						</ul>
+						<div>Root</div>
+						<div tree-view="structure" tree-view-options="options"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--[if !IE]> -->
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<!-- <![endif]-->
+		<!--[if IE]>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<![endif]-->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+		<script src="js/treeView.js"></script>
+		<script>
+			(function () {
+				var app = angular.module('Demo', ['AxelSoft']);
+				
+				app.controller('DemoController', ['$scope', function ($scope) {
+					
+					$scope.breadcrums = [''];
+					
+					$scope.structure = { folders: [
+						{ name: 'General and Reference', folders: [
+							{ name: 'Documents Types', files: [
+								{ name: 'surveys and overviews' },
+								{ name: 'Reference works'}
+							]}
+						]},
+						{ name: 'Hardware', folders: [
+							{ name: 'Print circuit boards', files: [
+								{ name: 'Electromagnetic'},
+								{ name: 'PCB design and layout'}
+							]}
+						] }
+					]};
+					
+					$scope.options = {
+						onNodeSelect: function (node, breadcrums) {
+							$scope.breadcrums = breadcrums;
+						}
+					};
+					
+					$scope.options2 = {
+						collapsible: false
+					};
+					
+					var iconClassMap = {
+						txt: 'icon-file-text',
+						jpg: 'icon-picture blue',
+						png: 'icon-picture orange',
+						gif: 'icon-picture'
+					},
+						defaultIconClass = 'icon-file';
+					
+					$scope.options3 = {
+						mapIcon: function (file) {
+							var pattern = /\.(\w+)$/,
+								match = pattern.exec(file.name),
+								ext = match && match[1];
+							
+							return iconClassMap[ext] || defaultIconClass;
+						}
+					};
+				}]);
+				
+			})();
+		</script>
+	</body>
+</html>
