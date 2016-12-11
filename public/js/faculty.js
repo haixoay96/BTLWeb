@@ -9,30 +9,30 @@
          $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/admin/faculty/views/home.html'
+            templateUrl: '/admin/faculty/home'
         })
         .state('lecturer', {
             url: '/lecturer',
-            templateUrl: '/admin/faculty/views/lecturer.html'
+            templateUrl: '/admin/faculty/lecturer.html'
         })
         .state('course', {
             url: '/course',
-            templateUrl: '/admin/faculty/views/course.html'
+            templateUrl: '/admin/faculty/course'
         })
         .state('courseprogram', {
             url: '/courseprogram',
-            templateUrl: '/admin/faculty/views/courseprogram.html'
+            templateUrl: '/admin/faculty/courseprogram'
         })
         .state('students', {
             url: '/students',
-            templateUrl: '/admin/faculty/views/students.html'
+            templateUrl: '/admin/faculty/students.html'
         })
         .state('dissertation', {
             url: '/dissertation',
-            templateUrl: '/admin/faculty/views/dissertation.html'
+            templateUrl: '/admin/faculty/dissertation.html'
         })
         .state('register_dissertation', {
             url: '/register_dissertation',
-            templateUrl: '/admin/faculty/views/register_dissertation.html'
+            templateUrl: '/admin/faculty/register_dissertation.html'
         })
 });

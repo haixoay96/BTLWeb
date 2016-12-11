@@ -82,7 +82,7 @@ INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email) VALUES('VLKT', 'Vat Ly Ky Thu
 
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123456', 'Cong nghe thong tin');
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123457', 'He thong thong tin');
-INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123458', 'Cong nghe nano');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123458', 'Cong nghe nano');d
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123459', 'Tri tue nhan tao');
 
 INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('123456', 'Cong nghe thong tin', 'CNTT');
