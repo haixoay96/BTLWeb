@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
                         return;
                     }
                     res.render('homeLogin/index', {
-                        name: row[0].HoTen
+                        name: rows[0].HoTen
                     });
                 });
                 break;

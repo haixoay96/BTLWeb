@@ -45,13 +45,15 @@ router.post('/lecturer', (req, res) => {
                 console.log(item);
                 async.waterfall([
                     (callback) => {
-                        db.query('INSERT INTO User (Username, Password, Type) VALUES (?,?,?)', [item.MaGv, '123456', 2], (err, rows) => {
-                            if (err) {
-                                callback(err);
-                                return;
-                            }
-                            callback(null, rows);
-                        });
+                        if (item.MaGv !== '') {
+                            db.query('INSERT INTO User (Username, Password, Type) VALUES (?,?,?)', [item.MaGv, '123456', 2], (err, rows) => {
+                                if (err) {
+                                    callback(err);
+                                    return;
+                                }
+                                callback(null, rows);
+                            });
+                        }
                     }
                 ], (error, result) => {
                     db.query('INSERT INTO GiangVien (MaGv, HoTen , MaKhoa, Email) VALUES (?,?,?,?)', [item.MaGv, item.HoTen, req.session.Username, item.Email], (err, rows) => {
@@ -65,6 +67,7 @@ router.post('/lecturer', (req, res) => {
 
             }, (err, result) => {
                 if (err) {
+                    console.log(1);
                     console.log(err);
                     return;
                 }
@@ -110,7 +113,7 @@ router.post('/student', (req, res) => {
                 console.log(item);
                 async.waterfall([
                     (callback) => {
-                        db.query('INSERT INTO User (Username, Password, Type) VALUES (?,?,?)', [item.MaGv, '123456', 3], (err, rows) => {
+                        db.query('INSERT INTO User (Username, Password, Type) VALUES (?,?,?)', [item.MaSv, '123456', 3], (err, rows) => {
                             if (err) {
                                 callback(err);
                                 return;
@@ -119,7 +122,7 @@ router.post('/student', (req, res) => {
                         });
                     }
                 ], (error, result) => {
-                    db.query('INSERT INTO GiangVien (MaGv, HoTen , MaKhoa, Email) VALUES (?,?,?,?)', [item.MaGv, item.HoTen, req.session.Username, item.Email], (err, rows) => {
+                    db.query('INSERT INTO SinhVien (MaSv, HoTen ,MaKh, MaNganh , Email) VALUES (?,?,?,?,?)', [item.MaSv, item.HoTen, item.MaKh, item.MaNganh, item.Email], (err, rows) => {
                         if (err) {
                             callback(err);
                             return;

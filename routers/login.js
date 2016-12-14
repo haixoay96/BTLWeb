@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
             res.end('System error!');
             return;
         }
-        if (rows) {
+        if (rows.length > 0) {
             console.log(rows);
             req.session.Username = Username;
             req.session.Type = rows[0].Type;

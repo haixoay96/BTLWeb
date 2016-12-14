@@ -1,0 +1,14 @@
+<h3>Đăng kí đề tài khoá luận</h3>
+<div class="form-group">
+    <div class="col-sm-10">
+        <form action="/update/nc" method="post">
+            Tên đề tài:<br>
+            <input type="text" name='nc' class="form-control">
+            Giảng viên:<br>
+            <% gvs.forEach(function(gv){ %>
+            <input  type="radio" class="btn btn-info" name="MaGv" value=<%= gv.HoTen %> ><%= gv.HoTen %><br>
+             <% }); %>
+            <input type="submit" value="Cập nhật" class="btn btn-info"">
+        </form>
+    </div>
+</div>

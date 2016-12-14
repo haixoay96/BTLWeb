@@ -7,7 +7,7 @@
          $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/admin/student/views/profile_student.html'
+            templateUrl: '/admin/student/profile_student'
         })
         .state('register_dissertation', {
             url: '/register_dissertation',

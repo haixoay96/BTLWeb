@@ -5,7 +5,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/admin/lecturer/views/profile_lecturer.html',
+            templateUrl: '/admin/lecturer/profile_lecturer',
             controller: 'HomeController'
         })
         .state('research', {
@@ -15,7 +15,7 @@ mainApp.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('field', {
             url: '/field',
-            templateUrl: '/admin/lecturer/views/field.html',
+            templateUrl: '/admin/lecturer/field',
             controller: 'fieldController'
         })
 });
@@ -48,4 +48,3 @@ mainApp.controller('fieldController', function ($scope) {
 
 
 });
-

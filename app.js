@@ -48,4 +48,5 @@ app.use('/faculty', require('./routers/faculty.js'));
 app.use('/login', require('./routers/login.js'));
 app.use('/admin', require('./routers/admin.js'));
 app.use('/logout', require('./routers/logout.js'));
+app.use('/update', require('./routers/update.js'));
 app.use('/changepassword', require('./routers/changepassword.js'));

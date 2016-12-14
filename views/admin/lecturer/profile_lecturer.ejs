@@ -1,0 +1,45 @@
+<h3> Giảng viên <%= hoten %></h3>
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td>Họ tên</td>
+        <td><%= hoten %></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mã giảng viên</td>
+        <td><%= magv %></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Đơn vị</td>
+        <td><%= khoa %></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Hướng nghiên cứu</td>
+        <td>
+            <div>
+                <ul>
+                    <% ncs.forEach(function(nc){ %>
+                       <li><%= nc.TenNc %></li>
+                     <% }); %>
+                </ul>
+            </div>
+        </td>
+        </td>
+    </tr>
+    <tr>
+        <td>Lĩnh vực</td>
+        <td>
+            <div>
+                <ul>
+                    <% lvs.forEach(function(lv){ %>
+                       <li><%= lv.TenLv %></li>
+                     <% }); %>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

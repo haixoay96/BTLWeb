@@ -16,9 +16,9 @@ router.get('/', (req, res) => {
                 });
                 break;
             case 2:
-                db.query('SELECT * FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
-                    res.render('admin/lecturer', {});
-                });
+                //    db.query('SELECT * FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
+                res.render('admin/lecturer', {});
+                //    });
                 break;
             case 3:
                 res.render('admin/student');
@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
     }
     res.redirect('/');
 });
+// handle faculty
 router.get('/faculty/home', (req, res) => {
     if (req.session.Username) {
         db.query('SELECT TenKhoa FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
@@ -60,8 +61,184 @@ router.get('/faculty/courseprogram', (req, res) => {
         });
     }
 });
+// handle lecturer
+router.get('/lecturer/profile_lecturer', (req, res) => {
+    if (req.session.Username) {
+        async.waterfall([
+            (callback) => {
+                db.query('SELECT MaGv,HoTen, MaKhoa FROM GiangVien WHERE MaGv = ? ', [req.session.Username], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                })
+            },
+            (rows, callback) => {
+                async.parallel({
+                    one: (callback) => {
+                        db.query('SELECT TenKhoa FROM Khoa WHERE MaKhoa = ?', [rows[0].MaKhoa], (error, rows) => {
+                            if (error) {
+                                callback(error);
+                                return;
+                            }
+                            console.log(rows[0].TenKhoa);
+                            callback(null, rows);
+                        });
+                    },
+                    two: (callback) => {
+                        db.query('SELECT TenNc FROM NghienCuu WHERE MaGv = ?', [rows[0].MaGv], (error, rows) => {
+                            if (error) {
+                                callback(error);
+                                return;
+                            }
+                            callback(null, rows);
+                        });
+                    },
+                    three: (callback) => {
+                        db.query('SELECT LinhVuc.TenLv FROM LinhVuc JOIN Lv_Gv ON LinhVuc.MaLv = Lv_Gv.MaLv AND Lv_Gv.MaGv = ?', [rows[0].MaGv], (error, rows) => {
+                            if (error) {
+                                callback(error);
+                                return;
+                            }
+                            callback(null, rows);
+                        });
+                    }
+                }, (error, result) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    result.zero = rows;
+                    callback(null, result);
 
-router.get('/lecturer', (req, res) => {
-
+                });
+            }
+        ], (error, result) => {
+            if (error) {
+                console.error(error);
+                return;
+            }
+            res.render('admin/lecturer/profile_lecturer', {
+                hoten: result.zero[0].HoTen,
+                magv: result.zero[0].MaGv,
+                khoa: result.one[0].TenKhoa,
+                ncs: result.two,
+                lvs: result.three
+            });
+        });
+    }
 });
+router.get('/lecturer/field', (req, res) => {
+    if (req.session.Username) {
+        async.waterfall([
+            (callback) => {
+                db.query('SELECT MaLv FROM Lv_Gv WHERE MaGv = ?', [req.session.Username], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    console.log(rows);
+                    callback(null, rows);
+                });
+            },
+            (result, callback) => {
+                console.log('Lv');
+                console.log(JSON.stringify(result));
+                if (result.length > 0) {
+                    console.log('Duoc');
+                    var list = [];;
+                    for (var i = 0; i < result.length; i++) {
+                        list.push(result[i].MaLv);
+                    }
+                    console.log(list);
+                    db.query('SELECT MaLv, TenLv FROM LinhVuc WHERE MaLv NOT IN (?)', [list], (error, rows) => {
+                        if (error) {
+                            callback(error);
+                            return;
+                        }
+                        callback(null, rows);
+                    });
+                    return;
+                }
+                db.query('SELECT MaLv, TenLv FROM LinhVuc', (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            }
+        ], (error, result) => {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            res.render('admin/lecturer/field', {
+                lvs: result
+            });
+            console.log(result);
+        });
+    }
+});
+// handle student
+router.get('/student/profile_student', (req, res) => {
+    if (req.session.Username) {
+        async.waterfall([
+            (callback) => {
+                db.query('SELECT * FROM SinhVien WHERE MaSv = ?', [req.session.Username], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            },
+            (result, callback) => {
+                db.query('SELECT MaKhoa, TenNganh FROM Nganh WHERE MaNganh = ?', [result[0].MaNganh], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    result[0].MaKhoa = rows[0].MaKhoa;
+                    result[0].TenNganh = rows[0].TenNganh;
+                    callback(null, result);
+                });
+            },
+            (result, callback) => {
+                db.query('SELECT TenKhoa FROM Khoa WHERE MaKhoa = ?', [result[0].MaKhoa], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    result[0].TenKhoa = rows[0].TenKhoa;
+                    callback(null, result);
+                });
+            }
+        ], (error, result) => {
+            if (error) {
+                return;
+            }
+            res.render('admin/student/profile_student', {
+                hoten: result[0].HoTen,
+                masv: result[0].MaSv,
+                khoa: result[0].TenKhoa,
+                nganh: result[0].TenNganh,
+                mail: result[0].Email
+            });
+        });
+    }
+});
+
+router.get('/student/register_dissertation', (req, res) => {
+    if(req.session.Username){
+        db.query('SELECT * FROM GiangVien', (error, rows)=>{
+            if(error){
+                return;
+            }
+            res.render('admin/')
+        });
+    }
+});
+
 module.exports = router;

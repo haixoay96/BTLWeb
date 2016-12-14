@@ -1,0 +1,11 @@
+<h3>Chọn các lĩnh vực liên quan</h3>
+<div>
+    <form action="/update/lv" method="post">
+        <% lvs.forEach(function(lv){ %>
+        <input  type="checkbox" name=<%= lv.MaLv %> >
+        <%= lv.TenLv %><br>
+         <% }); %>
+        <input class="btn btn-info" type="submit" value="Update">
+    </form>
+
+</div>
