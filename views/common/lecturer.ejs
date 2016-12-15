@@ -2,11 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Lecturers</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/lecturer_style.css">
-    <script src="/release/angular-ui-router.min.js"></script>
-    <script src="/angular.min.js"></script>
+    <title>Giang vien</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/lecturer_style.css">
+
+    <script src="/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/angular.js"></script>
+    <script src="/release/angular-ui-router.js"></script>
 </head>
 <body ng-app="lecturer">
 <nav class="header">
@@ -22,8 +27,8 @@
         <div class="input-group">
             <input class="form-control" type="text" placeholder="search for">
             <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </span>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </span>
         </div>
         <br/>
 
@@ -35,11 +40,11 @@
             <a ui-sref="dtvt" class="list-group-item list-group-item-action ">
                 <h5 class="list-group-item-heading">Điện tử viễn thông</h5>
             </a>
-            <a ui-sref="tt&mmt" class="list-group-item list-group-item-action ">
-                <h5 class="list-group-item-heading">Truyền thông và mạng máy tính</h5>
+            <a ui-sref="ckt" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Cơ kỹ thuật</h5>
             </a>
-            <a ui-sref="httt" class="list-group-item list-group-item-action ">
-                <h5 class="list-group-item-heading">Hệ thống thông tin</h5>
+            <a ui-sref="vlkt" class="list-group-item list-group-item-action ">
+                <h5 class="list-group-item-heading">Vật lý kỹ thuật</h5>
             </a>
         </div>
     </div>
@@ -47,6 +52,6 @@
         <div ui-view></div>
     </div>
 </div>
-</body>
 <script src="/js/lecturer_common.js"></script>
+</body>
 </html>

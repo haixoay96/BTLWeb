@@ -51,4 +51,5 @@ app.use('/admin', require('./routers/admin.js'));
 app.use('/logout', require('./routers/logout.js'));
 app.use('/update', require('./routers/update.js'));
 app.use('/open', require('./routers/open.js'));
+app.use('/profile', require('./routers/profile.js'));
 app.use('/changepassword', require('./routers/changepassword.js'));

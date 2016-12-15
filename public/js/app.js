@@ -4,7 +4,7 @@
 'use strict';
 angular.module('faculty',['ui.router'])
     .config(function($stateProvider,$urlRouterProvider) {
-        $urlRouterProvider.otherwise('/CNTT');
+        //$urlRouterProvider.otherwise('/DTVT');
         $stateProvider
             .state('CNTT', {
                 url:'/CNTT',

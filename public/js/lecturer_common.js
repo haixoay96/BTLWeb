@@ -3,27 +3,23 @@
  */
 'use strict';
 angular.module('lecturer',['ui.router'])
-    .config(function($stateProvider,$urlRouteProvider) {
-        $urlRouteProvider.otherwise('/cntt');
+    .config(function($stateProvider,$urlRouterProvider) {
+        $urlRouterProvider.otherwise('/cntt');
         $stateProvider
             .state('cntt', {
-                url: '/cntt',
-                templateUrl:'/common/lecturer/views/cntt/cntt.html'
-            })
-            .state('/lec_cntt_01', {
-                url: '/lec_cntt_01',
-                templateUrl:'/common/lecturer/views/cntt/lec_info/lec_info_01.html'
+                url : '/cntt',
+                templateUrl:'/lecturer/cntt'
             })
             .state('dtvt', {
                 url: '/dtvt',
-                templateUrl: '/common/lecturer/views/dtvt/dtvt.html'
+                templateUrl: '/lecturer/dtvt'
             })
-            .state('tt&mmt', {
-                url: '/tt&mmt',
-                templateUrl: '/common/lecturer/views/tt&mmt/tt&mmt.html'
+            .state('ckt', {
+                url: '/ckt',
+                templateUrl: '/lecturer/ckt'
             })
-            .state('httt', {
-                url: '/httt',
-                templateUrl: '/common/lecturer/views/httt/httt.html'
+            .state('vlkt', {
+                url: '/vlkt',
+                templateUrl: '/lecturer/vlkt'
             })
     });
