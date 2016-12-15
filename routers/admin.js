@@ -61,6 +61,29 @@ router.get('/faculty/courseprogram', (req, res) => {
         });
     }
 });
+router.get('/faculty/register_dissertation', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT Dk FROM Khoa WHERE MaKhoa = ?', [req.session.Username], (error, rows) => {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            if (rows[0].Dk === '0') {
+                res.render('admin/faculty/register_dissertation', {
+                    status: 'Đăng ký chưa được mở!',
+                    action: 'Mở'
+                });
+                return;
+            }
+            res.render('admin/faculty/register_dissertation', {
+                status: 'Đang mở đăng ký!',
+                action: 'Đóng'
+            });
+        });
+        return;
+    }
+    res.redirect('/');
+});
 // handle lecturer
 router.get('/lecturer/profile_lecturer', (req, res) => {
     if (req.session.Username) {
@@ -231,12 +254,41 @@ router.get('/student/profile_student', (req, res) => {
 });
 
 router.get('/student/register_dissertation', (req, res) => {
-    if(req.session.Username){
-        db.query('SELECT * FROM GiangVien', (error, rows)=>{
-            if(error){
+    if (req.session.Username) {
+        async.waterfall([
+            (callback) => {
+                db.query('SELECT Khoa.Dk AS khoa, SinhVien.Dk AS sv  FROM Khoa JOIN Nganh ON Khoa.MaKhoa = Nganh.MaKhoa JOIN SinhVien ON SinhVien.MaNganh = Nganh.MaNganh AND SinhVien.MaSv = ?', [req.session.Username], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            }
+        ], (error, result) => {
+            if (error) {
                 return;
             }
-            res.render('admin/')
+            if (result[0].khoa === '0') {
+                res.end('Khoa chưa mở đăng ký, quay lại sau!');
+                return;
+            }
+            if (result[0].sv === '0') {
+                res.end('Bạn không đủ điều kiện đăng ký!');
+                return;
+            }
+            if (result[0].sv === '2') {
+                res.end('Bạn đã đăng ký đề tài rồi!');
+                return;
+            }
+            db.query('SELECT * FROM GiangVien', (error, rows) => {
+                if (error) {
+                    return;
+                }
+                res.render('admin/student/register_dissertation', {
+                    gvs: rows
+                });
+            });
         });
     }
 });

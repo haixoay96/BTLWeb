@@ -11,6 +11,6 @@
         })
         .state('register_dissertation', {
             url: '/register_dissertation',
-            templateUrl: '/admin/student/views/register_dissertation.html'
+            templateUrl: '/admin/student/register_dissertation'
         })
 });
