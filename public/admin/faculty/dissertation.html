@@ -1,4 +1,4 @@
-<input type="file" file-model="myFile"/><br>
-<button ng-click="UploadFile()" class="btn btn-info">Upload</button>
-
-
+<form action="/upload/detai" enctype="multipart/form-data"  method="post">
+    <input type="file" name="upload"/><br>
+    <input type="submit" value="Upload" class="btn btn-info"></input>
+</form>

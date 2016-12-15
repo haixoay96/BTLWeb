@@ -10,6 +10,7 @@ CREATE TABLE Khoa (
     TenKhoa VARCHAR(100) NOT NULL,
     DiaChi VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL,
+    Dk VARCHAR(100) NOT NULL,
     FOREIGN KEY (MaKhoa) REFERENCES User(Username)
 );
 CREATE TABLE Nganh (
@@ -28,7 +29,7 @@ CREATE TABLE SinhVien (
     MaKh VARCHAR(100) NOT NULL,
     MaNganh VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL,
-    Dk VARCHAR(100),
+    Dk VARCHAR(100) NOT NULL,
     FOREIGN KEY (MaSv) REFERENCES User(Username),
     FOREIGN KEY (MaKh) REFERENCES KhoaHoc(MaKh)
 );
@@ -75,23 +76,23 @@ INSERT INTO User (Username, Password, Type) VALUES('DTVT', '123456', 1);
 INSERT INTO User (Username, Password, Type) VALUES('CKT', '123456', 1);
 INSERT INTO User (Username, Password, Type) VALUES('VLKT', '123456', 1);
 
-INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email) VALUES('CNTT', 'Cong nghe thong tin', 'Xuan Thuy', 'CNTT@vnu.edu.vn');
-INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email) VALUES('DTVT', 'Dien tu vien thong', 'Xuan Thuy', 'DTVT@vnu.edu.vn');
-INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email) VALUES('CKT', 'Co Hoc Ky Thuat Va Tu Dong Hoa', 'Xuan Thuy', 'CKT@vnu.edu.vn');
-INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email) VALUES('VLKT', 'Vat Ly Ky Thuat', 'Xuan Thuy', 'VLKT@vnu.edu.vn');
+INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('CNTT', 'Cong nghe thong tin', 'Xuan Thuy', 'CNTT@vnu.edu.vn','0');
+INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('DTVT', 'Dien tu vien thong', 'Xuan Thuy', 'DTVT@vnu.edu.vn','0');
+INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('CKT', 'Co Hoc Ky Thuat Va Tu Dong Hoa', 'Xuan Thuy', 'CKT@vnu.edu.vn','0');
+INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('VLKT', 'Vat Ly Ky Thuat', 'Xuan Thuy', 'VLKT@vnu.edu.vn','0');
 
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123456', 'Cong nghe thong tin');
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123457', 'He thong thong tin');
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123458', 'Cong nghe nano');
 INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123459', 'Tri tue nhan tao');
 
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('123456', 'Cong nghe thong tin', 'CNTT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('123457', 'He thong thong tin', 'CNTT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('123458', 'Khoa hoc may tinh', 'CNTT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('123459', 'Truyen thong va mang may tinh', 'CNTT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('223456', 'Dien tu vien thong', 'DTVT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('323456', 'Co ky thua va tu dong hoa', 'CKT');
-INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('423456', 'Vat ly ky thuat', 'VLKT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('CNTT', 'Cong nghe thong tin', 'CNTT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('HTTT', 'He thong thong tin', 'CNTT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('KHMT', 'Khoa hoc may tinh', 'CNTT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('TTMMT', 'Truyen thong va mang may tinh', 'CNTT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('DTVT', 'Dien tu vien thong', 'DTVT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('CKT', 'Co ky thua va tu dong hoa', 'CKT');
+INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('VLKT', 'Vat ly ky thuat', 'VLKT');
 
 INSERT INTO KhoaHoc (MaKh, TenKh) VALUES('2013', 'QHI-2013');
 INSERT INTO KhoaHoc (MaKh, TenKh) VALUES('2014', 'QHI-2014');

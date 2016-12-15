@@ -33,6 +33,6 @@
         })
         .state('register_dissertation', {
             url: '/register_dissertation',
-            templateUrl: '/admin/faculty/register_dissertation.html'
+            templateUrl: '/admin/faculty/register_dissertation'
         })
 });
