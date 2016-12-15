@@ -35,4 +35,8 @@
             url: '/register_dissertation',
             templateUrl: '/admin/faculty/register_dissertation'
         })
+        .state('cancel', {
+            url: '/cancel',
+            templateUrl: '/admin/faculty/cancel'
+        })
 });
