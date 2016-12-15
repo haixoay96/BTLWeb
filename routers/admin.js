@@ -84,6 +84,20 @@ router.get('/faculty/register_dissertation', (req, res) => {
     }
     res.redirect('/');
 });
+router.get('/faculty/cancel', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT MaSv, HoTen FROM SinhVien JOIN Nganh ON SinhVien.MaNganh = Nganh.MaNganh JOIN Khoa ON Nganh.MaKhoa = Khoa.MaKhoa AND Khoa.MaKhoa = ? AND SinhVien.Dk = ?', [req.session.Username, '2'], (error, rows) => {
+            if(error){
+                console.log(error);
+                return;
+            }
+            console.log(rows);
+            res.render('admin/faculty/cancel',{
+                svs: rows
+            });
+        });
+    }
+});
 // handle lecturer
 router.get('/lecturer/profile_lecturer', (req, res) => {
     if (req.session.Username) {

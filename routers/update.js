@@ -103,4 +103,9 @@ router.post('/detai', (req, res) => {
 
     }
 });
+router.post('/cancel', (req, res)=>{
+    if(req.session.Username){
+        db.query('DELETE DeTai WHERE ')
+    }
+});
 module.exports = router;
