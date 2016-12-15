@@ -3,10 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Lecturers</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/lecturer_style.css">
-    <script src="/angular.js"></script>
-    <script src="/angular-route.js"></script>
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/css/lecturer_style.css">-->
+    <!--<script src="/angular.js"></script>-->
+    <!--<script src="/angular-route.js"></script>-->
+
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/lecturer_style.css">
+    <script src="../../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="../../node_modules/angular-ui-router/node_modules/angular/angular.min.js"></script>
+    <script src="../../public/js/lecturer_common.js"></script>
     <!--<script src="js/bootstrap.min.js"></script>-->
 </head>
 <body ng-app="lecturer">
@@ -30,33 +36,23 @@
 
         <p>hoặc tìm kiếm theo khoa</p>
         <div class="list-group">
-            <a href="#/" class="list-group-item list-group-item-action">
+            <a ui-sref="cntt" class="list-group-item list-group-item-action">
                 <h5 class="list-group-item-heading">Khoa công nghệ công tin</h5>
             </a>
-            <a href="#/dtvt" class="list-group-item list-group-item-action ">
+            <a ui-sref="dtvt" class="list-group-item list-group-item-action ">
                 <h5 class="list-group-item-heading">Điện tử viễn thông</h5>
             </a>
-            <a href="#/tt&mmt" class="list-group-item list-group-item-action ">
+            <a ui-sref="tt&mmt" class="list-group-item list-group-item-action ">
                 <h5 class="list-group-item-heading">Truyền thông và mạng máy tính</h5>
             </a>
-            <a href="#/httt" class="list-group-item list-group-item-action ">
+            <a ui-sref="httt" class="list-group-item list-group-item-action ">
                 <h5 class="list-group-item-heading">Hệ thống thông tin</h5>
             </a>
         </div>
     </div>
     <div class="list_lecturers col-sm-6">
-        <!--<ul class="list-group">-->
-        <!--<li class="list-group-item"><a href="#/lec_info">Lê đình thanh</a> </li> <br>-->
-        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
-        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
-        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
-        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
-        <!--<li class="list-group-item"><a href="#">Lê đình thanh</a> </li><br>-->
-        <!--</ul>-->
-        <div ng-view=""></div>
+        <div ui-view></div>
     </div>
 </div>
-<script src="/js/lecturer_common.js"></script>
-<!--<script src="js/LecturerCtrl.js"></script>-->
 </body>
 </html>

@@ -2,28 +2,28 @@
  * Created by thanh huyền on 15-Nov-16.
  */
 'use strict';
-angular.module('lecturer',['ngRoute'])
-    .config(['$routeProvider',function($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl:'/common/lecturer/views/cntt/cntt.html',
-                controller:''
+angular.module('lecturer',['ui.router'])
+    .config(function($stateProvider,$urlRouteProvider) {
+        $urlRouteProvider.otherwise('/cntt');
+        $stateProvider
+            .state('cntt', {
+                url: '/cntt',
+                templateUrl:'/common/lecturer/views/cntt/cntt.html'
             })
-            .when('/lec_cntt_01', {
-                templateUrl:'/common/lecturer/views/cntt/lec_info/lec_info_01.html',
-                controller:''
+            .state('/lec_cntt_01', {
+                url: '/lec_cntt_01',
+                templateUrl:'/common/lecturer/views/cntt/lec_info/lec_info_01.html'
             })
-            .when('/dtvt', {
-                templateUrl: '/common/lecturer/views/dtvt/dtvt.html',
-                controller: ''
+            .state('dtvt', {
+                url: '/dtvt',
+                templateUrl: '/common/lecturer/views/dtvt/dtvt.html'
             })
-            .when('/tt&mmt', {
+            .state('tt&mmt', {
+                url: '/tt&mmt',
                 templateUrl: '/common/lecturer/views/tt&mmt/tt&mmt.html'
             })
-            .when('/httt', {
+            .state('httt', {
+                url: '/httt',
                 templateUrl: '/common/lecturer/views/httt/httt.html'
             })
-            .otherwise ({
-                redirectTo: '/'
-            });
-    }]);
+    });
