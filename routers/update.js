@@ -103,9 +103,39 @@ router.post('/detai', (req, res) => {
 
     }
 });
-router.post('/cancel', (req, res)=>{
-    if(req.session.Username){
-        db.query('DELETE DeTai WHERE ')
+router.post('/cancel', (req, res) => {
+    if (req.session.Username) {
+        db.query('UPDATE SinhVien SET Dk=? WHERE MaSv=?', ['1',req.body.MaSv], (error, rows)=>{
+            console.log(error);
+            console.log(rows);
+        });
+        async.waterfall([
+            (callback) => {
+                db.query('SELECT TenDt FROM DeTai WHERE MaSv=?', [req.body.MaSv], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            },
+            (result, callback) => {
+                db.query('DELETE FROM DeTai WHERE TenDt=?', [result[0].TenDt], (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            }
+        ], (error, result) => {
+            res.redirect('/admin');
+            if(error){
+                console.log(error);
+                return;
+            }
+            console.log(result);
+        });
     }
 });
 module.exports = router;
