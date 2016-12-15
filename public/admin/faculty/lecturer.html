@@ -1,57 +1,22 @@
-<h4> <strong>Khởi tạo danh sách giảng viên</strong></h4>
+<h4><strong>Khởi tạo danh sách giảng viên</strong></h4>
+
+<a ui-sref=".upload" class="btn btn-primary">Upload File </a>
+<a ui-sref=".input" class="btn btn-primary">Thêm tay </a>
 <table class="table table-bordered">
     <thead>
-    <th>Upload File</th>
-    <th>Nhập thông tin giảng viên</th>
+    <th>Họ và tên</th>
+    <th>Mã giảng viên</th>
+    <th>Khoa</th>
+    <th>Phòng thí nghiệm</th>
+    <th>Email</th>
     </thead>
     <tbody>
     <tr>
-        <td>
-            <form action="/upload/lecturer" enctype="multipart/form-data"  method="post">
-                <input type="file" name="upload"/><br>
-                <input type="submit" value="Upload" class="btn btn-info"></input>
-            </form>
-        </td>
-        <td>
-
-            <form ng-submit="">
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Họ và tên</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" ng-model="name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Mã giảng viên</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Khoa</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Phòng TN</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-sm-3">Vnu mail </label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-4">
-                        <button type="submit" class="btn btn-info">Submit</button>
-                    </div>
-                </div>
-            </form>
-            </div>
-        </td>
+        <td>Lê Đình Thanh</td>
+        <td>12345678</td>
+        <td>CNTT</td>
+        <td></td>
+        <td></td>
     </tr>
     </tbody>
+</table>
