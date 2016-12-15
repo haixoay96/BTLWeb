@@ -51,4 +51,8 @@ angular.module('Faculty', ['ui.router'])
                 url: '/register_dissertation',
                 templateUrl: '/admin/faculty/register_dissertation'
             })
+            .state('registed', {
+                url: '/registed',
+                templateUrl: '/admin/faculty/registed'
+            })
     });
