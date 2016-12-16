@@ -98,7 +98,7 @@ router.post('/detai', (req, res) => {
                 text: 'Sinh viên có mã ' + req.session.Username + ' muốn đăng ký đề tài:' + req.body.detai + ' với thầy!', // plaintext body
                 html: '<b>' + 'Sinh viên có mã ' + req.session.Username + ' muốn đăng ký đề tài:' + req.body.detai + ' với thầy!' + '</b>' // html body
             };
-            send(mailOptions);
+        //    send(mailOptions);
         });
 
     }
@@ -153,13 +153,33 @@ router.post('/notify', (req, res) => {
                     to: item.Email, // list of receivers
                     subject: 'Cảnh báo đăng ký đề tài!', // Subject line
                     text: 'Sinh viên có mã ' + item.MaSv + ' nhanh đăng ký đề tài', // plaintext body
-                    html: '<b>' + 'Sinh viên có mã ' + item.MaSv + ' nhanh đăng ký đề tài'+ '</b>' // html body
+                    html: '<b>' + 'Sinh viên có mã ' + item.MaSv + ' nhanh đăng ký đề tài' + '</b>' // html body
                 };
-                send(mailOptions);
+            //    send(mailOptions);
             });
 
 
         });
     }
+});
+
+router.post('/bv', (req, res) => {
+    res.end('Đã thông báo!');
+    db.query('SELECT Email FROM SinhVien JOIN Nganh ON SinhVien.MaNganh = Nganh.MaNganh AND Nganh.MaKhoa = ? AND SinhVien.Dk=?', [req.session.Username, '1'], (error, rows) => {
+        if (error) {
+            return;
+        }
+        console.log(rows)
+        async.every(rows, (item, callback) => {
+            var mailOptions = {
+                from: '"Admin !" <koolsok96@gmail.com>', // sender address
+                to: item.Email, // list of receivers
+                subject: 'Đăng ký bảo vệ!', // Subject line
+                text: 'Sinh viên có mã ' + item.MaSv + ' đăng ký bảo vệ', // plaintext body
+                html: '<b>' + 'Sinh viên có mã ' + item.MaSv + ' đăng ký bảo vệ' + '</b>' // html body
+            };
+            //send(mailOptions);
+        });
+    });
 });
 module.exports = router;

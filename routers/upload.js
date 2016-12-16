@@ -69,7 +69,7 @@ router.post('/lecturer', (req, res) => {
                             text: 'Username:' + item.MaGv + ' password:123456', // plaintext body
                             html: '<b>' + 'Username:' + item.MaGv + ' password:123456' + '</b>' // html body
                         };
-                        send(mailOptions);
+                    //    send(mailOptions);
                         callback(null, rows);
                     });
                 });
@@ -143,7 +143,7 @@ router.post('/student', (req, res) => {
                             text: 'Username:' + item.MaSv + ' password:123456', // plaintext body
                             html: '<b>' + 'Username:' + item.MaSv + ' password:123456' + '</b>' // html body
                         };
-                        send(mailOptions);
+                        //send(mailOptions);
                         callback(null, rows);
                     });
                 });
@@ -187,7 +187,7 @@ router.post('/detai', (req, res) => {
                     }
                     console.log('Duoc dk');
                     console.log(result);
-                    res.json(result);
+                    res.redirect('/admin');
                     callback(null, result);
                 })
             }
@@ -206,7 +206,7 @@ router.post('/detai', (req, res) => {
                         text: 'Bạn đủ điều kiện đăng ký khoa luận vui lòng vào đăng ký!', // plaintext body
                         html: '<b>' + 'Bạn đủ điều kiện đăng ký khoa luận vui lòng vào đăng ký!' + '</b>' // html body
                     };
-                    send(mailOptions);
+                //    send(mailOptions);
                     callback(null, rows);
                 });
 

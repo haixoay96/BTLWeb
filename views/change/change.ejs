@@ -8,25 +8,28 @@
     <script src="/angular.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/faculty.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/release/angular-ui-router.min.js"></script>
 
 </head>
 
 <body>
     <div class="container">
-        <form action="/changepassword" method="post">
+        <h2>Đổi mật khẩu</h2>
+        <form action="/changepassword" method="post" class="form-group">
             Old password:<br>
-            <input type="text" name="old">
+            <input type="text" required="true" name="old" class="form-control">
             <br>
             Password:<br>
-            <input type="text" name="pass">
+            <input type="text" required="true" name="pass" class="form-control">
             <br>
             Repassword:<br>
-            <input type="text" name="re">
+            <input type="text" required="true" name="re" class="form-control" >
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="btn btn-info">
         </form>
-        <p>Submit để đổi mật khẩu!</p>
+
     </div>
 
 

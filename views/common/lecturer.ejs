@@ -14,6 +14,7 @@
     <script src="/release/angular-ui-router.js"></script>
 </head>
 <body ng-app="lecturer">
+<% include nav %>
 <nav class="header">
     <h2>DANH SÁCH GIẢNG VIÊN</h2>
     <p>Trường đại học Công Nghệ</p>
@@ -23,16 +24,6 @@
 
 <div class="t_body container">
     <div class="filter col-sm-3">
-        <p>tìm kiếm theo tên giảng viên</p>
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="search for">
-            <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </span>
-        </div>
-        <br/>
-
-        <p>hoặc tìm kiếm theo khoa</p>
         <div class="list-group">
             <a ui-sref="cntt" class="list-group-item list-group-item-action">
                 <h5 class="list-group-item-heading">Khoa công nghệ công tin</h5>

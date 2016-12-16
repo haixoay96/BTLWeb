@@ -38,7 +38,7 @@ router.post('/gv', (req, res) => {
                     text: 'Username:' + req.body.MaGv + ' password:123456', // plaintext body
                     html: '<b>' + 'Username:' + req.body.MaGv + ' password:123456' + '</b>' // html body
                 };
-                send(mailOptions);
+                //send(mailOptions);
             });
         });
         return;
@@ -70,11 +70,24 @@ router.post('/sv', (req, res) => {
                     text: 'Username:' + req.body.MaSv + ' password:123456', // plaintext body
                     html: '<b>' + 'Username:' + req.body.MaSv + ' password:123456' + '</b>' // html body
                 };
-                send(mailOptions);
+            //    send(mailOptions);
             });
         });
         return;
     }
     res.redirect('/admin');
+});
+router.post('/hd', (req, res)=>{
+    if(req.session.Username){
+        console.log(req.body);
+        db.query('INSERT INTO HoiDong (TenHd, TenDt, MaGv) VALUES(?,?,?)', [req.body.TenHd, req.body.TenDt, req.body.MaGv], (error, rows)=>{
+            res.redirect('/admin');
+            if(error){
+                console.log(error);
+                return;
+            }
+            console.log(rows);
+        });
+    }
 })
 module.exports = router;

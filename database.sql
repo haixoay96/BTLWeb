@@ -62,6 +62,8 @@ CREATE TABLE DeTai(
 CREATE TABLE HoiDong(
     TenHd VARCHAR(100) NOT NULL PRIMARY KEY,
     TenDt VARCHAR(100) NOT NULL,
+    MaGv VARCHAR(100) NOT NULL,
+    FOREIGN KEY (MaGv) REFERENCES GiangVien(MaGv),
     FOREIGN KEY (TenDt) REFERENCES DeTai(TenDt)
 );
 CREATE TABLE NghienCuu(
@@ -81,10 +83,27 @@ INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('DTVT', 'Dien tu vi
 INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('CKT', 'Co Hoc Ky Thuat Va Tu Dong Hoa', 'Xuan Thuy', 'CKT@vnu.edu.vn','0');
 INSERT INTO Khoa (MaKhoa, TenKhoa , DiaChi, Email,Dk) VALUES('VLKT', 'Vat Ly Ky Thuat', 'Xuan Thuy', 'VLKT@vnu.edu.vn','0');
 
-INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123456', 'Cong nghe thong tin');
-INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123457', 'He thong thong tin');
-INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123458', 'Cong nghe nano');
-INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123459', 'Tri tue nhan tao');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123456', 'Document types');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123457', 'Surveys and overviews');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123458', 'Biograpieso');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('123459', 'Design');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('223459', 'General and refences');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('223458', 'Performance');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('223457', 'Validation');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('223456', 'Dynamic Memory');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('323456', 'Sanner');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('323457', 'Touch screen');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('323458', 'Haptic devices');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('423456', 'Printers');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('423457', 'Display and imagers');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('523457', 'Sensor application and deployments');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('523458', 'Metallic interconnect');
+INSERT INTO LinhVuc (MaLv, TenLv) VALUES('523459', 'wireless devices');
+
+
+
+
+
 
 INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('CNTT', 'Cong nghe thong tin', 'CNTT');
 INSERT INTO Nganh (MaNganh, TenNganh, MaKhoa) VALUES('HTTT', 'He thong thong tin', 'CNTT');

@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+    <thead>
+        <th>Họ tên</th>
+        <th> mã giảng viên</th>
+        <th>ĐƠn vị</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        <% ds.forEach(function(item){ %>
+            <tr>
+                <td>
+                    <%= item.HoTen %>
+                </td>
+                <td>
+                    <%= item.MaGv %>
+                </td>
+                <td>
+                    <%= item.MaKhoa %>
+                </td>
+                <td>
+                    <%= item.Email %>
+                </td>
+            </tr>
+         <% }); %>
+    </tbody>
+</table>

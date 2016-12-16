@@ -1,0 +1,23 @@
+<p>Danh sách đề tài</p>
+<table class="table table-bordered">
+    <thead>
+        <th>Tên đề tài</th>
+        <th>Sinh viên</th>
+        <th>Giảng viên</th>
+    </thead>
+    <tbody>
+        <% ds.forEach(function(item){ %>
+            <tr>
+                <td>
+                    <%= item.TenDt %>
+                </td>
+                <td>
+                    <%= item.sv %>
+                </td>
+                <td>
+                    <%= item.gv %>
+                </td>
+            </tr>
+         <% }); %>
+    </tbody>
+</table>

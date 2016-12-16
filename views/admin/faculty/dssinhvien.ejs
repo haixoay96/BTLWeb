@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+    <thead>
+        <th>Họ tên</th>
+        <th> Mã sinh viên</th>
+        <th>Chương trình đào tạo</th>
+        <th>Khóa học</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        <% ds.forEach(function(item){ %>
+            <tr>
+                <td>
+                    <%= item.HoTen %>
+                </td>
+                <td>
+                    <%= item.MaSv %>
+                </td>
+                <td>
+                    <%= item.TenNganh %>
+                </td>
+                <td>
+                    <%= item.MaKh %>
+                </td>
+                <td>
+                    <%= item.Email %>
+                </td>
+            </tr>
+         <% }); %>
+    </tbody>
+</table>

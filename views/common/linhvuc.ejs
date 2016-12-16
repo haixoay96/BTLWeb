@@ -9,6 +9,7 @@
     <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <% include nav %>
     <div class="container">
         <br> <br>
         <div class="header">
@@ -18,7 +19,7 @@
         <div class="treeview">
             <ul id="tree">
                 <% lvs.forEach(function(lv){ %>
-                    <li><a id="<%= lv.MaLv %>" class="tree-toggle1" href="/detail/<%=lv.MaLv%>"><%=lv.TenLv%></a></li>
+                    <li class="list-group-item"><a id="<%= lv.MaLv %>" class="tree-toggle1" href="/detail/<%=lv.MaLv%>"><%=lv.TenLv%></a></li>
                  <% }); %>
             </ul>
         </div>

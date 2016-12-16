@@ -39,4 +39,24 @@
             url: '/cancel',
             templateUrl: '/admin/faculty/cancel'
         })
+        .state('dsgv', {
+            url: '/dsgv',
+            templateUrl: '/admin/faculty/dsgiangvien'
+        })
+        .state('dssv', {
+            url: '/dssv',
+            templateUrl: '/admin/faculty/dssinhvien'
+        })
+        .state('bv', {
+            url: '/bv',
+            templateUrl: '/admin/faculty/notify.html'
+        })
+        .state('dsdt', {
+            url: '/dsdt',
+            templateUrl: '/admin/faculty/dsdt'
+        })
+        .state('thd', {
+            url: '/thd',
+            templateUrl: '/admin/faculty/taohd'
+        })
 });

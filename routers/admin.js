@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         switch (Type) {
             case 1:
                 db.query('SELECT * FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
-                    if(error){
+                    if (error) {
                         res.redirect('/');
                         return;
                     }
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
                 break;
             case 2:
                 db.query('SELECT * FROM GiangVien WHERE MaGv = ? ', [req.session.Username], (error, rows) => {
-                    if(error){
+                    if (error) {
                         res.redirect('/');
                         return;
                     }
@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
                 break;
             case 3:
                 db.query('SELECT * FROM SinhVien WHERE MaSv = ? ', [req.session.Username], (error, rows) => {
-                    if(error){
+                    if (error) {
                         res.redirect('/');
                         return;
                     }
@@ -117,6 +117,79 @@ router.get('/faculty/cancel', (req, res) => {
         });
     }
 });
+router.get('/faculty/dsgiangvien', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT * FROM GiangVien WHERE MaKhoa = ?', [req.session.Username], (error, rows) => {
+            if (error) {
+                return;
+            }
+            res.render('admin/faculty/dsgiangvien', {
+                ds: rows
+            });
+        })
+    }
+});
+router.get('/faculty/dssinhvien', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT SinhVien.HoTen AS HoTen, SinhVien.MaSv AS MaSv, Nganh.TenNganh AS TenNganh, SinhVien.MaKh AS MaKh ,SinhVien.Email AS Email FROM SinhVien JOIN Nganh ON SinhVien.MaNganh = Nganh.MaNganh JOIN Khoa ON Nganh.MaKhoa = Khoa.MaKhoa AND Khoa.MaKhoa = ? ', [req.session.Username], (error, rows) => {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            res.render('admin/faculty/dssinhvien', {
+                ds: rows
+            });
+        })
+    }
+});
+router.get('/faculty/dsdt', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT SinhVien.HoTen AS sv, GiangVien.HoTen AS gv, DeTai.TenDt AS TenDt FROM SinhVien JOIN DeTai ON SinhVien.MaSv = DeTai.MaSv JOIN GiangVien ON GiangVien.MaGv = DeTai.MaGv JOIN Khoa ON Khoa.MaKhoa = GiangVien.MaKhoa AND Khoa.MaKhoa = ? ', [req.session.Username], (error, rows) => {
+            if (error) {
+                console.log(error);
+                return;
+            }
+            res.render('admin/faculty/dsdt', {
+                ds: rows
+            });
+        })
+    }
+});
+router.get('/faculty/taohd', (req, res) => {
+    if (req.session.Username) {
+        async.parallel({
+            one: (callback) => {
+                db.query('SELECT TenDt FROM DeTai', (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            },
+            two: (callback) => {
+                db.query('SELECT MaGv, HoTen FROM GiangVien', (error, rows) => {
+                    if (error) {
+                        callback(error);
+                        return;
+                    }
+                    callback(null, rows);
+                });
+            }
+        }, (error, result) => {
+            if (error) {
+                res.end('Lôi hệ thống');
+                console.log(error);
+                return;
+            }
+            res.render('admin/faculty/taohd', {
+                dts: result.one,
+                gvs: result.two
+            });
+        });
+    }
+})
+
 // handle lecturer
 router.get('/lecturer/profile_lecturer', (req, res) => {
     if (req.session.Username) {

@@ -8,7 +8,7 @@
     <tr>
         <td>
             <form action="/upload/student" enctype="multipart/form-data"  method="post">
-                <input type="file" name="upload"/><br>
+                <input type="file" required="true" name="upload"/><br>
                 <input type="submit" value="Upload" class="btn btn-info"></input>
             </form>
         </td>
@@ -18,36 +18,36 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Họ và tên</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="HoTen">
+                        <input type="text" required="true" class="form-control" name="HoTen">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Mã sinh viên</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="MaSv">
+                        <input type="text" required="true" class="form-control" name="MaSv">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Mã khóa học</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="MaKh">
+                        <input type="text" required="true" class="form-control" name="MaKh">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Mã ngành học</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="MaNganh">
+                        <input type="text"  required="true" class="form-control" name="MaNganh">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Email </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="Email">
+                        <input type="email" required="true" class="form-control" name="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-4">
-                        <input type="submit" class="btn btn-info">
+                        <input type="submit"  class="btn btn-info">
                     </div>
                 </div>
             </form>
