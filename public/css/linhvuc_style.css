@@ -1,0 +1,9 @@
+.header {
+    /*background-color: #2aabd2;*/
+    /*background-color: #00FFFF;*/
+    /*border-radius: 5% 5%;*/
+    /*border: solid 0px #00FFFF;*/
+    border-left: 6px solid #2aabd2;
+    background-color: #00FFFF;
+    color: grey;
+}

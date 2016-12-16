@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Các lĩnh vực</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/linhvuc_style.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br> <br>
+        <div class="header">
+            <h2 style="padding-left: 10px;">Các lĩnh vực</h2>
+        </div>
+        <hr width="50%" align="left" size="5px">
+        <div class="treeview">
+            <ul id="tree">
+                <% lvs.forEach(function(lv){ %>
+                    <li><a id="<%= lv.MaLv %>" class="tree-toggle1" href="/detail/<%=lv.MaLv%>"><%=lv.TenLv%></a></li>
+                 <% }); %>
+            </ul>
+        </div>
+    </div>
+    <script src="/js/treeView.js"></script>
+
+</body>
+</html>

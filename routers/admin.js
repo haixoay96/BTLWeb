@@ -10,18 +10,37 @@ router.get('/', (req, res) => {
         switch (Type) {
             case 1:
                 db.query('SELECT * FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
+                    if(error){
+                        res.redirect('/');
+                        return;
+                    }
                     res.render('admin/faculty', {
-                        khoa: rows[0].TenKhoa
+                        khoa: rows[0].TenKhoa,
+                        name: rows[0].TenKhoa
                     });
                 });
                 break;
             case 2:
-                //    db.query('SELECT * FROM Khoa WHERE MaKhoa = ? ', [req.session.Username], (error, rows) => {
-                res.render('admin/lecturer', {});
-                //    });
+                db.query('SELECT * FROM GiangVien WHERE MaGv = ? ', [req.session.Username], (error, rows) => {
+                    if(error){
+                        res.redirect('/');
+                        return;
+                    }
+                    res.render('admin/lecturer', {
+                        name: rows[0].HoTen
+                    });
+                });
                 break;
             case 3:
-                res.render('admin/student');
+                db.query('SELECT * FROM SinhVien WHERE MaSv = ? ', [req.session.Username], (error, rows) => {
+                    if(error){
+                        res.redirect('/');
+                        return;
+                    }
+                    res.render('admin/student', {
+                        name: rows[0].HoTen
+                    });
+                });
                 break
             default:
                 res.redirect('/');
@@ -87,12 +106,12 @@ router.get('/faculty/register_dissertation', (req, res) => {
 router.get('/faculty/cancel', (req, res) => {
     if (req.session.Username) {
         db.query('SELECT MaSv, HoTen FROM SinhVien JOIN Nganh ON SinhVien.MaNganh = Nganh.MaNganh JOIN Khoa ON Nganh.MaKhoa = Khoa.MaKhoa AND Khoa.MaKhoa = ? AND SinhVien.Dk = ?', [req.session.Username, '2'], (error, rows) => {
-            if(error){
+            if (error) {
                 console.log(error);
                 return;
             }
             console.log(rows);
-            res.render('admin/faculty/cancel',{
+            res.render('admin/faculty/cancel', {
                 svs: rows
             });
         });

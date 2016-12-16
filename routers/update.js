@@ -105,7 +105,7 @@ router.post('/detai', (req, res) => {
 });
 router.post('/cancel', (req, res) => {
     if (req.session.Username) {
-        db.query('UPDATE SinhVien SET Dk=? WHERE MaSv=?', ['1',req.body.MaSv], (error, rows)=>{
+        db.query('UPDATE SinhVien SET Dk=? WHERE MaSv=?', ['1', req.body.MaSv], (error, rows) => {
             console.log(error);
             console.log(rows);
         });
@@ -130,11 +130,35 @@ router.post('/cancel', (req, res) => {
             }
         ], (error, result) => {
             res.redirect('/admin');
-            if(error){
+            if (error) {
                 console.log(error);
                 return;
             }
             console.log(result);
+        });
+    }
+});
+router.post('/notify', (req, res) => {
+    if (req.session.Username) {
+        db.query('SELECT Email, MaSv FROM SinhVien JOIN Nganh ON SinhVien.MaNganh = Nganh.MaNganh AND Nganh.MaKhoa = ? AND SinhVien.Dk=?', [req.session.Username, '1'], (error, rows) => {
+            if (error) {
+                res.redirect('/admin');
+                return;
+            }
+            console.log(rows)
+            res.redirect('/admin');
+            async.every(rows, (item, callback) => {
+                var mailOptions = {
+                    from: '"Admin !" <koolsok96@gmail.com>', // sender address
+                    to: item.Email, // list of receivers
+                    subject: 'Cảnh báo đăng ký đề tài!', // Subject line
+                    text: 'Sinh viên có mã ' + item.MaSv + ' nhanh đăng ký đề tài', // plaintext body
+                    html: '<b>' + 'Sinh viên có mã ' + item.MaSv + ' nhanh đăng ký đề tài'+ '</b>' // html body
+                };
+                send(mailOptions);
+            });
+
+
         });
     }
 });

@@ -37,7 +37,7 @@ router.post('/lecturer', (req, res) => {
                         return;
                     }
                     console.log(result);
-                    res.json(result);
+                    res.redirect('/admin');
                     callback(null, result);
                 })
             }
@@ -113,7 +113,7 @@ router.post('/student', (req, res) => {
                         return;
                     }
                     console.log(result);
-                    res.json(result);
+                    res.redirect('/admin');
                     callback(null, result);
                 })
             }

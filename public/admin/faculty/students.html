@@ -14,40 +14,40 @@
         </td>
         <td>
 
-            <form ng-submit="">
+            <form action="/insert/sv" method="post">
                 <div class="form-group">
                     <label class="control-label col-sm-3">Họ và tên</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" ng-model="name">
+                        <input type="text" class="form-control" name="HoTen">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-3">Mã sinh viên</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="MaSv">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Khoá học</label>
+                    <label class="control-label col-sm-3">Mã khóa học</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="MaKh">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Ngành học</label>
+                    <label class="control-label col-sm-3">Mã ngành học</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="MaNganh">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Vnu mail </label>
+                    <label class="control-label col-sm-3">Email </label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-4">
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <input type="submit" class="btn btn-info">
                     </div>
                 </div>
             </form>

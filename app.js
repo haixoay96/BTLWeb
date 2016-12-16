@@ -52,4 +52,7 @@ app.use('/logout', require('./routers/logout.js'));
 app.use('/update', require('./routers/update.js'));
 app.use('/open', require('./routers/open.js'));
 app.use('/profile', require('./routers/profile.js'));
+app.use('/linhvuc', require('./routers/linhvuc.js'));
+app.use('/insert', require('./routers/insert.js'));
+app.use('/detail', require('./routers/detail.js'));
 app.use('/changepassword', require('./routers/changepassword.js'));
